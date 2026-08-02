@@ -1,0 +1,17 @@
+{
+  "name": "PROJECT SADHANA.EXE",
+  "short_name": "Sadhana ♥",
+  "description": "A small universe built for Sadhana.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#090611",
+  "theme_color": "#090611",
+  "icons": [
+    {
+      "src": "assets/icons/sadhana-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
