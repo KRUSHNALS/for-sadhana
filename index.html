@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090611" />
+    <meta name="description" content="PROJECT SADHANA.EXE — a small universe built for Sadhana." />
+    <title>PROJECT SADHANA.EXE</title>
+
+    <!-- Premium display + readable body typefaces -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Decorative canvas is kept separate from content for performance and accessibility. -->
+    <canvas id="starfield" aria-hidden="true"></canvas>
+    <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-bar"></span></div>
+    <div class="ambient-glow ambient-glow--one" aria-hidden="true"></div>
+    <div class="ambient-glow ambient-glow--two" aria-hidden="true"></div>
+
+    <!-- Boot sequence: JavaScript dismisses this after the staged loading animation. -->
+    <section class="boot-screen" id="boot-screen" aria-label="Loading PROJECT SADHANA.EXE">
+      <div class="boot-screen__window">
+        <div class="window-bar" aria-hidden="true">
+          <span></span><span></span><span></span>
+          <p>system://sadhana/startup</p>
+        </div>
+        <div class="boot-screen__content">
+          <p class="eyebrow">PROJECT SADHANA.EXE</p>
+          <h1>BOOTING<span class="cursor">_</span></h1>
+          <ul class="boot-log" aria-live="polite">
+            <li data-boot-line="0">Loading Memories <span>0%</span></li>
+            <li data-boot-line="1">Loading Happiness <span>0%</span></li>
+            <li data-boot-line="2">Compiling Love <span>0%</span></li>
+          </ul>
+          <div class="progress-track" aria-hidden="true"><span id="boot-progress"></span></div>
+          <p class="boot-success" id="boot-success">Build Successful <span aria-hidden="true">♥</span></p>
+        </div>
+      </div>
+    </section>
+
+    <main id="experience" hidden>
+      <!-- Minimal navigation is visible once the opening terminal has been unlocked. -->
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="Back to the beginning">S<span>♥</span></a>
+        <a class="nav-status" href="#countdown"><i></i> birthday protocol</a>
+      </nav>
+
+      <!-- The terminal invitation serves as a deliberate, cinematic entry point. -->
+      <section class="terminal-intro section section--fullscreen" id="top">
+        <div class="terminal-shell glass-panel" data-aos="fade-up">
+          <div class="window-bar" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <p>love@internet:~</p>
+          </div>
+          <div class="terminal-shell__body">
+            <p class="terminal-prompt">visitor@sadhana:~$ <span id="typed-intro"></span></p>
+            <button class="enter-button" id="enter-experience" type="button">
+              <span>Press Enter</span>
+              <kbd>↵</kbd>
+            </button>
+          </div>
+        </div>
+        <p class="scroll-cue" aria-hidden="true">A little universe awaits <span>↓</span></p>
+      </section>
+
+      <!-- Hero -->
+      <section class="hero section section--fullscreen" aria-labelledby="hero-title">
+        <p class="eyebrow" data-aos="fade-up">A private corner of the internet</p>
+        <h1 id="hero-title" data-aos="fade-up" data-aos-delay="100">For <em>Sadhana</em><span class="heart-mark" aria-label="love">♥</span></h1>
+        <p class="hero__copy" data-aos="fade-up" data-aos-delay="200">
+          This isn’t just another website.<br />
+          It’s a little universe I built for you.
+        </p>
+        <a class="discover-link" href="#story" data-aos="fade-up" data-aos-delay="300">Begin the story <span>↓</span></a>
+      </section>
+
+      <!-- Origin story -->
+      <section class="story section" id="story" aria-labelledby="story-title">
+        <div class="story__label section-label" data-aos="fade-right">01 / ORIGIN</div>
+        <div class="story__lines" id="story-title">
+          <p data-aos="fade-up">We met <em>online.</em></p>
+          <p data-aos="fade-up" data-aos-delay="80">Two strangers.</p>
+          <p data-aos="fade-up" data-aos-delay="160">One conversation.</p>
+          <p data-aos="fade-up" data-aos-delay="240">Countless smiles.</p>
+          <p class="story__last" data-aos="fade-up" data-aos-delay="320">One unforgettable <em>person.</em></p>
+        </div>
+      </section>
+
+      <!-- Swipeable micro-gallery: no photos needed, only personal feelings. -->
+      <section class="orbit-section section" aria-labelledby="orbit-title">
+        <div class="section-label" data-aos="fade-right">02 / IN YOUR ORBIT</div>
+        <div class="orbit-section__heading" data-aos="fade-up">
+          <p class="eyebrow">Swipe through the evidence</p>
+          <h2 id="orbit-title">Things that<br />make you <em>you.</em></h2>
+        </div>
+        <div class="orbit-track" aria-label="Swipeable list of things that make Sadhana special">
+          <article class="orbit-card orbit-card--pink"><span>01</span><p>Your laugh,<br /><em>somehow</em><br />through a screen.</p><i aria-hidden="true">✦</i></article>
+          <article class="orbit-card orbit-card--violet"><span>02</span><p>The way ordinary<br />days become<br /><em>better</em> with you.</p><i aria-hidden="true">☾</i></article>
+          <article class="orbit-card orbit-card--peach"><span>03</span><p>A person who feels<br />like a <em>favourite</em><br />place.</p><i aria-hidden="true">♥</i></article>
+          <article class="orbit-card orbit-card--dark"><span>04</span><p>Every little version<br />of your <em>magic.</em></p><i aria-hidden="true">✦</i></article>
+        </div>
+        <p class="swipe-hint" aria-hidden="true">← swipe for more →</p>
+      </section>
+
+      <!-- Profile terminal -->
+      <section class="section terminal-section" aria-labelledby="profile-title">
+        <div class="section-label" data-aos="fade-right">03 / SEARCH RESULT</div>
+        <article class="profile-terminal glass-panel" data-aos="zoom-in" id="profile-title">
+          <div class="window-bar" aria-hidden="true"><span></span><span></span><span></span><p>C:\LOVE&gt;</p></div>
+          <div class="profile-terminal__body">
+            <p class="command-line"><span>C:\LOVE&gt;</span> search --entire-internet</p>
+            <p class="searching">Searching Internet<span class="loading-dots">...</span></p>
+            <div class="result-card">
+              <p class="result-card__label">FOUND / 01</p>
+              <dl>
+                <div><dt>Name</dt><dd>Sadhana <span>♥</span></dd></div>
+                <div><dt>Status</dt><dd>Best Thing That Happened To Me</dd></div>
+              </dl>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Developer in-joke -->
+      <section class="code-section section" aria-labelledby="code-title">
+        <div class="section-label" data-aos="fade-right">04 / LOGIC</div>
+        <div class="code-layout">
+          <div data-aos="fade-up">
+            <p class="eyebrow">A small piece of source code</p>
+            <h2 id="code-title">The only<br /><em>condition</em><br />that matters.</h2>
+          </div>
+          <pre class="love-code glass-panel" data-aos="fade-left"><code><span class="code-keyword">if</span> (weNeverMet) {
+  life<span class="code-operator">--</span>;
+} <span class="code-keyword">else</span> {
+  happiness<span class="code-operator">++</span>;
+}
+
+<span class="code-comment">// Output</span>
+<span class="code-string">"Best Decision Ever ♥"</span></code></pre>
+        </div>
+      </section>
+
+      <!-- Personal letter -->
+      <section class="letter-section section" aria-labelledby="letter-title">
+        <div class="letter-card glass-panel" data-aos="fade-up">
+          <p class="letter-card__meta">05 / A NOTE FOR YOU</p>
+          <h2 id="letter-title">Dear <em>Sadhana,</em></h2>
+          <div class="letter-card__copy">
+            <p>People usually buy gifts.</p>
+            <p>I decided to build one.</p>
+            <p>Every animation. Every button. Every line of code.</p>
+            <p>Was written while thinking about you.</p>
+            <p class="letter-card__closing">Happy Birthday.<br /><span>♥</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- A small touch-first moment gives the site a playful, personal interaction. -->
+      <section class="heart-lab section" aria-labelledby="heart-lab-title">
+        <div class="section-label" data-aos="fade-right">06 / TOUCH TEST</div>
+        <div class="heart-lab__layout">
+          <div data-aos="fade-up">
+            <p class="eyebrow">A tiny experiment</p>
+            <h2 id="heart-lab-title">Tap the heart.<br />Make a <em>wish.</em></h2>
+            <p class="heart-lab__copy">I left a little bit of magic here. Tap it three times and see what happens.</p>
+          </div>
+          <div class="heart-lab__game glass-panel" data-aos="zoom-in" aria-live="polite">
+            <p class="heart-lab__count"><span id="heart-count">0</span> / 3 wishes collected</p>
+            <button class="wish-heart" id="wish-heart" type="button" aria-label="Collect a birthday wish">
+              <span aria-hidden="true">♥</span>
+              <i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i>
+            </button>
+            <p class="heart-lab__message" id="heart-message">One tap = one little wish.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Every card can be opened with a tap. It uses no images, by design. -->
+      <section class="vault-section section" aria-labelledby="vault-title">
+        <div class="section-label" data-aos="fade-right">07 / PRIVATE VAULT</div>
+        <div class="vault-section__heading" data-aos="fade-up">
+          <p class="eyebrow">Three things I wanted to say</p>
+          <h2 id="vault-title">Tap to <em>unlock.</em></h2>
+        </div>
+        <div class="vault-grid">
+          <button class="vault-card" type="button" data-vault-card aria-label="Open surprise one">
+            <span class="vault-card__number">01</span><span class="vault-card__symbol">♡</span>
+            <span class="vault-card__front">One small<br />truth.</span>
+            <span class="vault-card__back">You make my world feel softer.</span>
+          </button>
+          <button class="vault-card" type="button" data-vault-card aria-label="Open surprise two">
+            <span class="vault-card__number">02</span><span class="vault-card__symbol">✦</span>
+            <span class="vault-card__front">One little<br />promise.</span>
+            <span class="vault-card__back">I’ll keep finding new ways to make you smile.</span>
+          </button>
+          <button class="vault-card" type="button" data-vault-card aria-label="Open surprise three">
+            <span class="vault-card__number">03</span><span class="vault-card__symbol">☾</span>
+            <span class="vault-card__front">One big<br />wish.</span>
+            <span class="vault-card__back">May this year be as beautiful as your heart.</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- A tactile canvas interaction that works with fingers and mouse pointers. -->
+      <section class="constellation-section section" aria-labelledby="constellation-title">
+        <div class="section-label" data-aos="fade-right">08 / MAKE A CONSTELLATION</div>
+        <div class="constellation-shell glass-panel" data-aos="zoom-in">
+          <div class="constellation-shell__copy">
+            <p class="eyebrow">Touch the night sky</p>
+            <h2 id="constellation-title">Leave your<br /><em>own stars.</em></h2>
+            <p>Tap anywhere in this little sky. Every point becomes part of tonight’s constellation.</p>
+          </div>
+          <canvas id="constellation-canvas" aria-label="Interactive constellation canvas. Tap to add a star."></canvas>
+          <p class="constellation-status" id="constellation-status" aria-live="polite">0 stars placed</p>
+          <button class="clear-stars" id="clear-stars" type="button">Clear sky</button>
+        </div>
+      </section>
+
+      <!-- A reusable random-message component creates a fresh small moment each visit. -->
+      <section class="message-machine section" aria-labelledby="message-machine-title">
+        <div class="section-label" data-aos="fade-right">09 / MESSAGE GENERATOR</div>
+        <div class="message-machine__panel glass-panel" data-aos="fade-up">
+          <p class="eyebrow">For whenever you need it</p>
+          <h2 id="message-machine-title">A reminder,<br /><em>just for you.</em></h2>
+          <p class="generated-message" id="generated-message">Press the button. I made this machine only for you.</p>
+          <button class="message-button" id="generate-message" type="button"><span>Generate a little love</span> <b>↻</b></button>
+        </div>
+      </section>
+
+      <!-- Date-based countdown populated by JavaScript. -->
+      <section class="countdown-section section" id="countdown" aria-labelledby="countdown-title">
+        <p class="eyebrow" data-aos="fade-up">10 / UNTIL THE DAY</p>
+        <h2 id="countdown-title" data-aos="fade-up">The next chapter<br />begins in</h2>
+        <div class="countdown" aria-live="polite" data-aos="fade-up" data-aos-delay="100">
+          <div><strong id="days">00</strong><span>days</span></div>
+          <div><strong id="hours">00</strong><span>hours</span></div>
+          <div><strong id="minutes">00</strong><span>minutes</span></div>
+          <div><strong id="seconds">00</strong><span>seconds</span></div>
+        </div>
+        <p class="countdown-section__date">03 AUGUST <span>•</span> THE DAY THE WORLD GOT BRIGHTER</p>
+      </section>
+
+      <!-- The main reward moment -->
+      <section class="launch-section section section--fullscreen" aria-labelledby="launch-title">
+        <div class="launch-orbit" aria-hidden="true"><i></i><i></i><i></i></div>
+        <p class="eyebrow" data-aos="fade-up">11 / FINAL COMMAND</p>
+        <h2 id="launch-title" data-aos="fade-up">There’s one more<br /><em>thing.</em></h2>
+        <button class="launch-button" id="launch-birthday" type="button" data-aos="zoom-in" data-aos-delay="150">
+          <span class="launch-button__glow" aria-hidden="true"></span>
+          <span class="launch-button__icon">▶</span>
+          <span>RUN birthday.exe</span>
+        </button>
+        <p class="launch-hint">Click when you’re ready, Sadhana.</p>
+      </section>
+
+      <!-- End screen is hidden until the birthday command runs. -->
+      <section class="completion-screen" id="completion-screen" aria-live="polite" aria-hidden="true">
+        <div class="completion-screen__content">
+          <p class="eyebrow">SYSTEM MESSAGE</p>
+          <p class="completion-screen__code">COMPILATION COMPLETE</p>
+          <h2>Congratulations <span>♥</span></h2>
+          <p>You unlocked my heart.</p>
+          <p class="completion-screen__birthday">Happy Birthday, <em>Sadhana.</em></p>
+          <p class="completion-screen__subline">Made with a ridiculous amount of love and code.</p>
+          <button class="restart-button" id="close-completion" type="button">Return to universe</button>
+        </div>
+      </section>
+
+      <!-- An optional, intentionally subtle command line holds the keyboard Easter eggs. -->
+      <aside class="secret-console" id="secret-console" aria-label="Secret command console">
+        <p><span>love@internet:~$</span> <output id="secret-output">type a secret command...</output></p>
+      </aside>
+    </main>
+
+    <!-- Libraries: animation, scroll reveal, typing, and confetti celebration. -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
